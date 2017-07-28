@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="English"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Python-notes-Regular-Expression | PrivateHome</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/6.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Python-notes-Regular-Expression</h1><a id="logo" href="/.">PrivateHome</a><p class="description">Personal recordings</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Python-notes-Regular-Expression</h1><div class="post-meta">Mar 25, 2017<span> | </span><span class="category"><a href="/categories/Python-notes/">Python notes</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">Contents</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Some-basic-notes-when-applying-Regular-Expression"><span class="toc-number">1.</span> <span class="toc-text">Some basic notes when applying Regular-Expression</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Basic-concepts"><span class="toc-number">1.0.1.</span> <span class="toc-text">Basic concepts</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#A-powerful-tool"><span class="toc-number">1.1.</span> <span class="toc-text">A powerful tool.</span></a></li></ol></li></ol></div></div><div class="post-content"><h3 id="Some-basic-notes-when-applying-Regular-Expression"><a href="#Some-basic-notes-when-applying-Regular-Expression" class="headerlink" title="Some basic notes when applying Regular-Expression"></a>Some basic notes when applying Regular-Expression</h3><a id="more"></a>
+<h5 id="Basic-concepts"><a href="#Basic-concepts" class="headerlink" title="Basic concepts"></a>Basic concepts</h5><div style="text-align: justify"></div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">symbol</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\d</td>
+<td style="text-align:center">Decimal digits/[0-9]</td>
+</tr>
+<tr>
+<td style="text-align:center">\D</td>
+<td style="text-align:center">[^0-9]</td>
+</tr>
+<tr>
+<td style="text-align:center">\s</td>
+<td style="text-align:center">Blank character/[\t\n\r\f\v]</td>
+</tr>
+<tr>
+<td style="text-align:center">\S</td>
+<td style="text-align:center">[^\t\n\r\f\v]</td>
+</tr>
+<tr>
+<td style="text-align:center">\w</td>
+<td style="text-align:center">characters and digits/[a-z,A-Z,0-9,_]</td>
+</tr>
+<tr>
+<td style="text-align:center">\W</td>
+<td style="text-align:center">[^a-z,A-Z,0-9,_]</td>
+</tr>
+<tr>
+<td style="text-align:center">^</td>
+<td style="text-align:center">beginning match</td>
+</tr>
+<tr>
+<td style="text-align:center">$</td>
+<td style="text-align:center">end match</td>
+</tr>
+<tr>
+<td style="text-align:center">{n}</td>
+<td style="text-align:center">match n times</td>
+</tr>
+<tr>
+<td style="text-align:center">{m,n}</td>
+<td style="text-align:center">match m-n times</td>
+</tr>
+<tr>
+<td style="text-align:center">+</td>
+<td style="text-align:center">match at least once</td>
+</tr>
+<tr>
+<td style="text-align:center">?</td>
+<td style="text-align:center">match 0-1</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:center">match 0-n times</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>Basic frame<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import re</div><div class="line"></div><div class="line">s = STRING</div><div class="line">r1 = r<span class="string">'EXPRESSION'</span></div><div class="line">result = re.findall(r1,s)</div></pre></td></tr></table></figure></p>
+<p>Method match for once, example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">d = re.match(r<span class="string">'^(\w+) (\w+)$'</span>,<span class="string">'hellow world'</span>) <span class="comment">#there is a blank space between two b'rackets</span></div><div class="line">d.groups()<span class="comment">#Gets one or more grouped intercepted strings; when multiple parameters are specified, they are returned as tuples.</span></div><div class="line"></div><div class="line">//<span class="built_in">print</span>:</div><div class="line">(<span class="string">'hellow'</span>, <span class="string">'world'</span>)</div></pre></td></tr></table></figure></p>
+<p>Method split, example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">e = <span class="string">"a1b2c3d4"</span></div><div class="line">result = re.split(r<span class="string">'\d'</span>,e)</div><div class="line"><span class="built_in">print</span> result</div><div class="line"></div><div class="line">//<span class="built_in">print</span>:</div><div class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">''</span>]</div></pre></td></tr></table></figure></p>
+<p>Re.finditer (pattern, string [, flags]), Search string, return an iterator that sequentially accesses each matching result (Match object).</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">pattern = re.compile(r<span class="string">'\d+'</span>)</div><div class="line"><span class="keyword">for</span> m <span class="keyword">in</span> re.finditer(pattern,<span class="string">'one1two2three3four4'</span>): </div><div class="line">    <span class="built_in">print</span> m.group()</div><div class="line">	</div><div class="line">//<span class="built_in">print</span>:</div><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="A-powerful-tool"><a href="#A-powerful-tool" class="headerlink" title="A powerful tool."></a>A powerful tool.</h4><p>Grep (Globel Search Regular Expression and Printing out the line) is a powerful text search tool that is a search job for rows that can use regular expressions to search for text , And print the matching lines.</p>
+<p>Grammar:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">grep</th>
+<th style="text-align:center">options</th>
+<th style="text-align:center">‘pattern’</th>
+<th style="text-align:center">file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">command</td>
+<td style="text-align:center">options</td>
+<td style="text-align:center">search pattern</td>
+<td style="text-align:center">file will be searched</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Options</th>
+<th style="text-align:center">Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-r</td>
+<td style="text-align:center">Recursive search</td>
+</tr>
+<tr>
+<td style="text-align:center">-v</td>
+<td style="text-align:center">[Reverse selection, only rows that do not match the pattern]</td>
+</tr>
+<tr>
+<td style="text-align:center">-o</td>
+<td style="text-align:center">Only display the strings that are matched by the pattern, not the entire row</td>
+</tr>
+<tr>
+<td style="text-align:center">-i</td>
+<td style="text-align:center">[Match is not case-sensitive</td>
+</tr>
+<tr>
+<td style="text-align:center">-A</td>
+<td style="text-align:center">Show matching rows, the way behind the # line (# represents the value)</td>
+</tr>
+<tr>
+<td style="text-align:center">-B</td>
+<td style="text-align:center">Preceding # lines</td>
+</tr>
+<tr>
+<td style="text-align:center">-C</td>
+<td style="text-align:center">Before and after the # line</td>
+</tr>
+<tr>
+<td style="text-align:center">-E</td>
+<td style="text-align:center">Use extended regular expressions</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>To search files:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ls | grep filename</div><div class="line"></div><div class="line"></div><div class="line">ls | grep <span class="string">'REGULAR EXPRESSION'</span></div></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>re.sub(pattern, repl, string, count=0, flags=0). Replace string.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">info = <span class="string">'test,&amp;nbsp;url("http://www.baidu.com")&amp;,dddddd "="" &lt;svg&gt;&lt;/svg&gt;&lt;path&gt;&lt;/path&gt;&lt;img src="http://www.baidu.com"&gt;ininnnin&lt;img src="http://www.dd.com"&gt;'</span></div><div class="line"><span class="comment">#turn &amp; into &amp;amp,but not turn &amp;nbsp</span></div><div class="line"></div><div class="line">url_r = re.compile(<span class="string">'&amp;(?!\w&#123;4&#125;)'</span>)</div><div class="line">info1 = url_r.sub(<span class="string">'&amp;amp'</span>, info)</div><div class="line"><span class="built_in">print</span> info1</div><div class="line"></div><div class="line"><span class="comment">#close[img]tags</span></div><div class="line">info2 = info</div><div class="line">img_list = re.findall(<span class="string">'&lt;img.*?&gt;'</span>, info)</div><div class="line"></div><div class="line"><span class="keyword">for</span> img_i <span class="keyword">in</span> img_list:</div><div class="line">    info2 = info2.replace(img_i, img_i +<span class="string">'&lt;/img&gt;'</span>)</div><div class="line"><span class="built_in">print</span> info2</div><div class="line"></div><div class="line"><span class="comment">#turn url()'s ["]into[']</span></div><div class="line">url_url = re.findall(<span class="string">'url\(".*?"\)'</span>,info)   <span class="comment">#The brackets need to be translated</span></div><div class="line"><span class="built_in">print</span> url_url</div><div class="line">info3 = <span class="string">""</span></div><div class="line"><span class="keyword">for</span> url_i <span class="keyword">in</span> url_url:</div><div class="line">    url_new = url_i.replace(<span class="string">'"'</span>, <span class="string">'\'</span><span class="string">')</span></div><div class="line">    </div><div class="line">    info3 = info.replace(url_i, url_new)</div><div class="line">print info3</div></pre></td></tr></table></figure>
+<p>To group result, for example:<br>```bash<br>r’<li>…..<a href="([^" ]+?)="">([^&lt;]+?)”</a><span class="....">(([^)]+?))</span>‘</li></p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://private100.github.io/2017/03/25/Python-notes-Regular-Expression/" data-id="cj5nx2oa5000gdkmvqrvb9ezj" class="article-share-link">Share</a><div class="tags"><a href="/tags/Regular-Expression/">Regular Expression</a></div><div class="post-nav"><a href="/2017/03/28/Python-notes-Socket/" class="pre">Python-notes-Socket</a><a href="/2017/03/21/Python-notes-YieldGenerator/" class="next">Python-notes-YieldGenerator</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://private100.github.io"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Group-Project/">Group Project</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python-notes/">Python notes</a><span class="category-list-count">8</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Douglas-Peucker/" style="font-size: 15px;">Douglas-Peucker</a> <a href="/tags/Multithreading/" style="font-size: 15px;">Multithreading</a> <a href="/tags/Scrapy/" style="font-size: 15px;">Scrapy</a> <a href="/tags/Socket/" style="font-size: 15px;">Socket</a> <a href="/tags/bs/" style="font-size: 15px;">bs</a> <a href="/tags/Yield/" style="font-size: 15px;">Yield</a> <a href="/tags/Regular-Expression/" style="font-size: 15px;">Regular Expression</a> <a href="/tags/Logging/" style="font-size: 15px;">Logging</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/07/28/Python-notes-logging2/">Python_notes_Logging2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/Python-notes-BeautifulSoup/">Python-notes-BeautifulSoup</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/08/Python-notes-Scrapy/">Python-notes-Scrapy</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Python-notes-Socket/">Python-notes-Socket</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/25/Python-notes-Regular-Expression/">Python-notes-Regular-Expression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/Python-notes-YieldGenerator/">Python-notes-YieldGenerator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Python-notes-Multithreading/">Python_notes_Multithreading</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/Python-notes-logging/">Python_notes_Logging</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/Douglas-Peucker/">Douglas-Peucker</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/Android-APP/">Android_APP</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">PrivateHome.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
